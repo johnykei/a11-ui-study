@@ -37,7 +37,7 @@ const ModalWithDialogEl: React.FC<ModalWithDialogElProps> = ({
           bg-white dark:bg-gray-800
           light:text-gray-800
           rounded-md 
-        backdrop:bg-black/[.4] backdrop:dark:bg-white/[.4] backdrop:content-[''] backdrop:inset-0"
+          backdrop:bg-black/[.4] backdrop:dark:bg-white/[.4] backdrop:content-[''] backdrop:inset-0"
         ref={dialogRef}
         open={isOpen}
         aria-labelledby="modalTitle"
