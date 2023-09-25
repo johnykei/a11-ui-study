@@ -1,33 +1,39 @@
-# Accessibility UI Study
+# 🎨 Accessibility UI Study
 
-This repository is for personal space to study a11y UI.
+Welcome to the repository dedicated to studying UI accessibility (a11y). This is a personal space focused on delving deep into the intricacies of accessible UI development.
 
-## Documentations
+## 🛠 Technologies & Tools
 
-This repository uses the following tools.
+This project leverages the following remarkable technologies:
 
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite.js](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Storybook](https://storybook.js.org/)
+- **[React](https://react.dev/)**: 📚 A JavaScript library for building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: ✍️ A strongly typed superset of JavaScript.
+- **[Vite.js](https://vitejs.dev/)**: 🚀 A build tool offering a faster and leaner development experience for modern web projects.
+- **[Tailwind CSS](https://tailwindcss.com/)**: 🎨 A utility-first CSS framework for rapid UI development.
+- **[Storybook](https://storybook.js.org/)**: 📖 An open-source tool for developing UI components in isolation.
 
-## Prerequisites
+## 🔍 Prerequisites
 
-- [Node.js](http://nodejs.org/) (v18.18.0)
+To ensure a seamless development experience, you'll need:
 
-Fix the version of Node.js to reduce the risk of version differences changing the operating environment. (Current: **v18.18.0**)
-Recommend to use [asdf](https://asdf-vm.com/) or something like that which provide multiple node environments. `.tool-versions` file in the root of the project fixes the Node.js version.
+- **[Node.js](http://nodejs.org/)** (v18.18.0) 🟢 
 
-## Getting Started
+For consistent environment settings and to minimize issues due to version discrepancies, we've locked the Node.js version to **v18.18.0**. It's recommended to use tools like [asdf](https://asdf-vm.com/) 🔄 to manage multiple Node.js environments. The `.tool-versions` file at the project root specifies the required Node.js version.
 
-### Develop
+## 🚀 Getting Started
+
+### Development Mode
+
+To jump-start the application in development mode, execute:
 
 ```
 npm run dev
 ```
 
-### Storybook
+
+### 📚 Using Storybook
+
+To activate and view components in Storybook, initiate:
 
 ```
 npm run storybook
