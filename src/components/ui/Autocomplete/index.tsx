@@ -1,27 +1,51 @@
 import * as React from "react";
 
-interface AutocompleteProps {
-  title?: string;
+interface AutocompleteItemProps {
+  title: string;
+  href: string;
 }
 
-const Autocomplete: React.FC<AutocompleteProps> = ({ title }) => {
-  const [isShowMenu, setShowMenu] = React.useState(false);
+interface AutocompleteProps {
+  title?: string;
+  autocompleteId?: string;
+  autocomplete: AutocompleteItemProps[];
+}
+
+const Autocomplete: React.FC<AutocompleteProps> = ({
+  title,
+  autocompleteId = "autocomplete",
+  autocomplete,
+}) => {
+  const [isShowAutocomplete, setShowAutocomplete] = React.useState(false);
   return (
     <>
       <input
         type="search"
         role="combobox"
-        onFocus={() => setShowMenu(true)}
-        onBlur={() => setShowMenu(false)}
+        placeholder="Search..."
+        onFocus={() => setShowAutocomplete(true)}
+        onBlur={() => setShowAutocomplete(false)}
+        autoComplete="off"
+        aria-controls={`${autocompleteId}_list`}
         aria-autocomplete="list"
+        aria-expanded={isShowAutocomplete}
       />
-      {isShowMenu && (
+      {isShowAutocomplete && (
         <div>
           <h2 id="autocomplete_title">{title}</h2>
-          <ul aria-labelledby="autocomplete_title" role="listbox">
-            <li role="option">aaa</li>
-            <li role="option">aaa</li>
-          </ul>
+          {autocomplete && (
+            <ul
+              id={`${autocompleteId}_list`}
+              aria-labelledby="autocomplete_title"
+              role="listbox"
+            >
+              {autocomplete.map((item, i) => (
+                <li role="option" key={`autocomplete-${i}`}>
+                  <a href={item.href}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
     </>
