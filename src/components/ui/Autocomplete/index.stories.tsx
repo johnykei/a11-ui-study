@@ -35,6 +35,5 @@ const sampleAutocompleteList = [
 export const Default = Template.bind({});
 Default.args = {
   title: "Autocomplete menu",
-  autocompleteId: "sampleAutocomplete",
   autocomplete: sampleAutocompleteList,
 };

@@ -7,15 +7,11 @@ interface AutocompleteItemProps {
 
 interface AutocompleteProps {
   title?: string;
-  autocompleteId?: string;
   autocomplete: AutocompleteItemProps[];
 }
 
-const Autocomplete: React.FC<AutocompleteProps> = ({
-  title,
-  autocompleteId = "autocomplete",
-  autocomplete,
-}) => {
+const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
+  const autocompleteId = React.useId();
   const [isShowAutocomplete, setShowAutocomplete] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(-1);
 
