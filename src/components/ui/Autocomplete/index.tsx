@@ -92,12 +92,13 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
       {isShowAutocomplete && (
         <div
           className="
-          absolute top-full
-          py-2 mt-2
-          border border-gray-300 dark:border-gray-600
-          bg-white dark:bg-gray-800
-          shadow-sm
-          rounded-sm"
+            absolute top-full
+            py-2 mt-2
+            border border-gray-300 dark:border-gray-600
+            bg-white dark:bg-gray-800
+            shadow-sm
+            rounded-sm
+          "
         >
           <h2 id="autocomplete_title" className="mb-3 px-4 font-bold">
             {title}
@@ -122,11 +123,12 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
                     href={item.href}
                     id={`${autocompleteId}_item_${i}`}
                     className="
-                    block
-                    px-4 py-1
-                    text-sm
-                    text-gray-800 dark:text-white
-                    hover:text-gray-800 hover:dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700"
+                      block
+                      px-4 py-1
+                      text-sm
+                      text-gray-800 dark:text-white
+                      hover:text-gray-800 hover:dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700
+                    "
                   >
                     {item.title}
                   </a>
