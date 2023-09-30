@@ -58,12 +58,18 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
   };
 
   return (
-    <>
+    <div className="relative">
       <input
         type="search"
         role="combobox"
         placeholder="Search..."
         id={`${autocompleteId}_input`}
+        className="
+          px-2 py-1.5 
+          border border-gray-300 dark:border-gray-600
+          bg-white dark:bg-gray-800
+          rounded-sm
+        "
         onFocus={() => setShowAutocomplete(true)}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
@@ -73,8 +79,18 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
         aria-expanded={isShowAutocomplete}
       />
       {isShowAutocomplete && (
-        <div>
-          <h2 id="autocomplete_title">{title}</h2>
+        <div
+          className="
+          absolute top-full
+          py-2 mt-2
+          border border-gray-300 dark:border-gray-600
+          bg-white dark:bg-gray-800
+          shadow-sm
+          rounded-sm"
+        >
+          <h2 id="autocomplete_title" className="mb-3 px-4 font-bold">
+            {title}
+          </h2>
           {autocomplete && (
             <ul
               id={`${autocompleteId}_list`}
@@ -86,9 +102,21 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
                   role="option"
                   key={`autocomplete-${i}`}
                   aria-selected={i === activeIndex}
-                  className="aria-selected:bg-gray-800"
+                  className="
+                    [&+&]:mt-2
+                    aria-selected:bg-gray-100 aria-selected:dark:bg-gray-700
+                  "
                 >
-                  <a href={item.href} id={`${autocompleteId}_item_${i}`}>
+                  <a
+                    href={item.href}
+                    id={`${autocompleteId}_item_${i}`}
+                    className="
+                    block
+                    px-4 py-1
+                    text-sm
+                    text-gray-800 dark:text-white
+                    hover:text-gray-800 hover:dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700"
+                  >
                     {item.title}
                   </a>
                 </li>
@@ -97,7 +125,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

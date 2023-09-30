@@ -15,25 +15,49 @@ const Template: StoryFn<AutocompleteProps> = (args) => (
 
 const sampleAutocompleteList = [
   {
-    title: "Autocomplete item 1",
-    href: "https://johnykei.net",
+    title: "JavaScript tutorial",
+    href: "https://example.com/javascript-tutorial",
   },
   {
-    title: "Autocomplete item 2",
-    href: "https://zenn.dev/johnnykei",
+    title: "How to make homemade pizza",
+    href: "https://recipe.example.com/homemade-pizza",
   },
   {
-    title: "Autocomplete item 3",
-    href: "https://github.com/johnykei",
+    title: "Latest tech news",
+    href: "https://technews.example.com",
   },
   {
-    title: "Autocomplete item 4",
-    href: "https://twitter.com/johnykei",
+    title: "Top 10 travel destinations",
+    href: "https://travelblog.example.com/top-10-destinations",
+  },
+  {
+    title: "2023 movies",
+    href: "https://movies.example.com/2023-releases",
+  },
+  {
+    title: "Digital photography tips",
+    href: "https://photography.example.com/tips",
+  },
+  {
+    title: "Best books to read",
+    href: "https://books.example.com/best-books",
+  },
+  {
+    title: "Popular fashion trends",
+    href: "https://fashion.example.com/popular-trends",
+  },
+  {
+    title: "Home gardening basics",
+    href: "https://gardening.example.com/basics",
+  },
+  {
+    title: "Fitness exercises at home",
+    href: "https://fitness.example.com/home-exercises",
   },
 ];
 
 export const Default = Template.bind({});
 Default.args = {
-  title: "Autocomplete menu",
+  title: "Recommended Links",
   autocomplete: sampleAutocompleteList,
 };
