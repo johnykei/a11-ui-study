@@ -54,6 +54,17 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
         e.preventDefault();
         setActiveIndex(-1);
         break;
+      case "Home":
+        e.preventDefault();
+        setActiveIndex(0);
+        break;
+
+      case "End":
+        e.preventDefault();
+        setActiveIndex(autocomplete.length - 1);
+        break;
+      default:
+        break;
     }
   };
 
