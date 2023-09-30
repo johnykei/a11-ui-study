@@ -122,6 +122,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
                   <a
                     href={item.href}
                     id={`${autocompleteId}_item_${i}`}
+                    onMouseDown={(e) => e.preventDefault()}
                     className="
                       block
                       px-4 py-1
