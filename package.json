@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "component": "node_modules/.bin/hygen component new"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.14",
+    "hygen": "^6.2.11",
     "postcss": "^8.4.30",
     "storybook": "^7.4.4",
     "tailwindcss": "^3.3.3",
