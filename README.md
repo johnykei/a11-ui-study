@@ -38,3 +38,11 @@ To activate and view components in Storybook, initiate:
 ```
 npm run storybook
 ```
+
+### 🧩 Create a New Component
+
+To automatically generate a new component using a command, run:
+
+```
+npm run component
+```
