@@ -71,7 +71,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
   return (
     <div className="relative">
       <input
-        type="search"
+        type="text"
         role="combobox"
         placeholder="Search..."
         id={`${autocompleteId}_input`}
