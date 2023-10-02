@@ -1,0 +1,15 @@
+name: PR Code Testing
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Run tests on PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run linting
+        run: npm run lint
