@@ -1,4 +1,5 @@
 import * as React from "react";
+import { tv } from "tailwind-variants";
 
 interface AutocompleteItemProps {
   title: string;
@@ -9,6 +10,40 @@ interface AutocompleteProps {
   title?: string;
   autocomplete: AutocompleteItemProps[];
 }
+
+const autocomplete = tv({
+  slots: {
+    container: `relative`,
+    input: `
+      px-2 py-1.5 
+      border border-gray-300 dark:border-gray-600
+      bg-white dark:bg-gray-800
+      rounded-sm
+    `,
+    menu: `
+      absolute top-full
+      py-2 mt-2
+      border border-gray-300 dark:border-gray-600
+      bg-white dark:bg-gray-800
+      shadow-sm
+      rounded-sm
+    `,
+    menuTitle: `mb-3 px-4 font-bold`,
+    option: `
+      [&+&]:mt-2
+      aria-selected:bg-gray-100 aria-selected:dark:bg-gray-700
+    `,
+    optionLink: `
+      block
+      px-4 py-1
+      text-sm
+      text-gray-800 dark:text-white
+      hover:text-gray-800 hover:dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700`,
+  },
+});
+
+const { input, container, menu, menuTitle, option, optionLink } =
+  autocomplete();
 
 const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
   const autocompleteId = React.useId();
@@ -69,18 +104,13 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
   };
 
   return (
-    <div className="relative">
+    <div className={container()}>
       <input
         type="text"
         role="combobox"
         placeholder="Search..."
         id={`${autocompleteId}_input`}
-        className="
-          px-2 py-1.5 
-          border border-gray-300 dark:border-gray-600
-          bg-white dark:bg-gray-800
-          rounded-sm
-        "
+        className={input()}
         onFocus={() => setShowAutocomplete(true)}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
@@ -90,17 +120,8 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
         aria-expanded={isShowAutocomplete}
       />
       {isShowAutocomplete && (
-        <div
-          className="
-            absolute top-full
-            py-2 mt-2
-            border border-gray-300 dark:border-gray-600
-            bg-white dark:bg-gray-800
-            shadow-sm
-            rounded-sm
-          "
-        >
-          <h2 id="autocomplete_title" className="mb-3 px-4 font-bold">
+        <div className={menu()}>
+          <h2 id="autocomplete_title" className={menuTitle()}>
             {title}
           </h2>
           {autocomplete && (
@@ -114,22 +135,13 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ title, autocomplete }) => {
                   role="option"
                   key={`autocomplete-${i}`}
                   aria-selected={i === activeIndex}
-                  className="
-                    [&+&]:mt-2
-                    aria-selected:bg-gray-100 aria-selected:dark:bg-gray-700
-                  "
+                  className={option()}
                 >
                   <a
                     href={item.href}
                     id={`${autocompleteId}_item_${i}`}
                     onMouseDown={(e) => e.preventDefault()}
-                    className="
-                      block
-                      px-4 py-1
-                      text-sm
-                      text-gray-800 dark:text-white
-                      hover:text-gray-800 hover:dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700
-                    "
+                    className={optionLink()}
                   >
                     {item.title}
                   </a>
