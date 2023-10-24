@@ -1,9 +1,28 @@
 import * as React from "react";
+import { tv } from "tailwind-variants";
 
 interface ModalWithDialogElProps {
   title?: string;
   children?: React.ReactNode;
 }
+
+const modal = tv({
+  slots: {
+    base: `
+      p-8 
+      bg-white dark:bg-gray-800 light:text-gray-800
+      rounded-md
+      backdrop:bg-black/[.4] backdrop:dark:bg-white/[.4] backdrop:content-[''] backdrop:inset-0
+    `,
+    modalTitle: `
+      mb-4
+      text-xl font-bold
+    `,
+    modalText: `mb-8 text-left`,
+  },
+});
+
+const { base, modalTitle, modalText } = modal();
 
 const ModalWithDialogEl: React.FC<ModalWithDialogElProps> = ({
   title,
@@ -32,25 +51,15 @@ const ModalWithDialogEl: React.FC<ModalWithDialogElProps> = ({
       </ul>
 
       <dialog
-        className="
-          p-8
-          bg-white dark:bg-gray-800
-          light:text-gray-800
-          rounded-md 
-          backdrop:bg-black/[.4] backdrop:dark:bg-white/[.4] backdrop:content-[''] backdrop:inset-0"
+        className={base()}
         ref={dialogRef}
         open={isOpen}
         aria-labelledby="modalTitle"
       >
-        <h2
-          id="modalTitle"
-          className="
-            mb-4
-            text-xl font-bold"
-        >
+        <h2 id="modalTitle" className={modalTitle()}>
           {title}
         </h2>
-        <p className="mb-8 text-left">{children}</p>
+        <p className={modalText()}>{children}</p>
         <button
           type="button"
           onClick={() => {
